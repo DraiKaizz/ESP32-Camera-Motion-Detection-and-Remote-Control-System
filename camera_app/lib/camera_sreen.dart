@@ -192,7 +192,7 @@ class _CameraScreenState extends State<CameraScreen> {
                 ),
                 onPressed: toggleFlash,
                 child: Text(
-                  isFlashOn ? 'Tắt Đèn 1' : 'Bật Đèn 1',
+                    isFlashOn ? 'Turn Off Light 1' : 'Turn On Light 1',
                   style: TextStyle(fontSize: 24, color: Colors.white),
                 ),
               ),
@@ -211,7 +211,7 @@ class _CameraScreenState extends State<CameraScreen> {
                 ),
                 onPressed: toggleFlash2,
                 child: Text(
-                  isFlash2On ? 'Tắt Đèn 2 và 3' : 'Bật Đèn 2 và 3', // Cập nhật văn bản nút
+                    isFlash2On ? 'Turn Off Light 2' : 'Turn On Light 2', // Cập nhật văn bản nút
                   style: TextStyle(fontSize: 24, color: Colors.white),
                 ),
               ),
@@ -229,7 +229,7 @@ class _CameraScreenState extends State<CameraScreen> {
                   borderRadius: BorderRadius.circular(15),
                   child: Transform(
                     alignment: Alignment.center,
-                    transform: Matrix4.rotationX(3.14159), // Lật ngược theo trục X
+                    transform: Matrix4.rotationX(0), // Lật ngược theo trục X
                     child: Mjpeg(
                       isLive: isRunning,
                       stream: 'http://${widget.cameraIP}/stream',

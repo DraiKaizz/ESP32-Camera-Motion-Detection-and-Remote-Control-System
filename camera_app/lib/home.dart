@@ -74,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
           }
           foundDevices++;
 
-          String areaName = 'Khu vực ${detectedIPs.length + 1}';
+          String areaName = 'Area ${detectedIPs.length + 1}';
           detectedIPs[areaName] = addr.ip;
 
           setState(() {
@@ -92,11 +92,11 @@ class _HomeScreenState extends State<HomeScreen> {
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Quét xong. Tìm thấy $foundDevices thiết bị.')),
+        SnackBar(content: Text('Scan complete. Found $foundDevices devices.')),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Lỗi khi quét: $e')),
+        SnackBar(content: Text('Scan error: $e')),
       );
     } finally {
       setState(() {
@@ -113,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
         isScanning = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Đã dừng quét.')),
+        SnackBar(content: Text('Scan stopped.')),
       );
     }
   }
@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             const SizedBox(height: 120),
             const Text(
-              "Các khu vực trong ngôi nhà",
+              "Areas in the house",
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
@@ -161,18 +161,18 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               },
-              child: const Text("Xem tất cả camera", style: TextStyle(fontSize: 18)),
+              child: const Text("View all cameras", style: TextStyle(fontSize: 18)),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: isScanning ? null : scanAllSubnets,
               child: isScanning
                   ? const CircularProgressIndicator(color: Colors.white)
-                  : const Text("Quét toàn bộ mạng", style: TextStyle(fontSize: 18)),
+                  : const Text("Scan entire network", style: TextStyle(fontSize: 18)),
             ),
             const SizedBox(height: 20),
             if (foundDevices > 0)
-              Text("Tìm thấy $foundDevices thiết bị.", style: const TextStyle(fontSize: 16, color: Colors.green)),
+              Text("Found $foundDevices devices.", style: const TextStyle(fontSize: 16, color: Colors.green)),
             Expanded(
               child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       String cameraIP = cameraIPs[areaName] ?? "";
                       if (cameraIP.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Không có IP cho khu vực này")),
+                          SnackBar(content: Text("No IP for this area")),
                         );
                         return;
                       }

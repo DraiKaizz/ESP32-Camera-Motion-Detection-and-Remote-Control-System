@@ -11,7 +11,7 @@ class AllCamerasScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Tất cả camera"),
+        title: const Text("All Cameras"),
         backgroundColor: Colors.blueAccent,
       ),
       body: PageView.builder(
@@ -61,7 +61,7 @@ class AllCamerasScreen extends StatelessWidget {
                         clipBehavior: Clip.antiAlias,
                         child: Transform(
                           alignment: Alignment.center,
-                          transform: Matrix4.rotationX(pi), // Xoay video feed
+                          transform: Matrix4.rotationX(0), // Xoay video feed
                           child: Mjpeg(
                             isLive: true,
                             stream: 'http://$cameraIP/stream',
@@ -88,7 +88,7 @@ class AllCamerasScreen extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 24.0),
                       ),
                       child: const Text(
-                        "Thông tin camera",
+                        "Camera Information",
                         style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                     ),

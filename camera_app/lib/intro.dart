@@ -14,14 +14,14 @@ class _IntroScreenState extends State<IntroScreen> {
 
   void _validatePassword() {
     if (_passwordController.text == _password) {
-      ScaffoldMessenger.of(context).showSnackBar( const SnackBar(content: Text("Mật khẩu chính xác!")));
+      ScaffoldMessenger.of(context).showSnackBar( const SnackBar(content: Text("Correct password!")));
       // Điều hướng tới màn hình Home khi mật khẩu đúng
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) =>  HomeScreen()),
       );
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Mật khẩu sai!")));
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text("Incorrect password!")));
     }
   }
 
@@ -38,12 +38,12 @@ class _IntroScreenState extends State<IntroScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Chào mừng đến với ứng dụng!",
+              "Welcome to the app!",
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 30),
             const Text(
-              "Vui lòng nhập mật khẩu để tiếp tục",
+              "Please enter the password to continue",
               style: TextStyle(fontSize: 18),
             ),
             const SizedBox(height: 20),
@@ -51,7 +51,7 @@ class _IntroScreenState extends State<IntroScreen> {
               controller: _passwordController,
               obscureText: true,
               decoration:  const InputDecoration(
-                labelText: "Mật khẩu",
+                labelText: "Password",
                 border: OutlineInputBorder(),
               ),
             ),
@@ -62,7 +62,7 @@ class _IntroScreenState extends State<IntroScreen> {
                 minimumSize: const Size(double.infinity, 50), backgroundColor: Colors.blueAccent,
                 textStyle: const TextStyle(fontSize: 18),
               ),
-              child: const Text("Đăng nhập"),
+              child: const Text("Login"),
             ),
           ],
         ),
